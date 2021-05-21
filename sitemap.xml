@@ -2,10 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://fuchunlan.github.is/categories/</loc>
+    <loc>http://fuchunlan.github.io/about/</loc>
+    <lastmod>2021-05-21T14:42:49+08:00</lastmod>
   </url><url>
-    <loc>http://fuchunlan.github.is/</loc>
+    <loc>http://fuchunlan.github.io/categories/</loc>
   </url><url>
-    <loc>http://fuchunlan.github.is/tags/</loc>
+    <loc>http://fuchunlan.github.io/</loc>
+  </url><url>
+    <loc>http://fuchunlan.github.io/tags/</loc>
   </url>
 </urlset>
