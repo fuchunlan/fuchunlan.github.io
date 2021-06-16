@@ -17,11 +17,12 @@
 
 <meta name="generator" content="Hugo 0.83.1" />
 
-<link rel="canonical" href="https://fuchunlan.github.io/post/first/" />
+<link rel="canonical" href="https://fuchunlan.github.io/post/git/" />
 
 
 <meta property="og:title" content="基于向开源项目提PR的常见git操作" />
 <meta property="og:description" content="引言 作为一个初入职场的程序员👨🏻‍💻，想必大家都会面临的一个问题就是如何提交代码，Git操作说难也难，说易也易，面向百度也能搜出各式各样的教程，而笔者依然选择写一篇，当然是因为笔者发现在工作中用到的和网上现有的教程存在一些差异。
+(Ps:可能有些小白也和当初的我一样并不知道PR是什么~，这里解答一下，就是Pull Request)
 准备工作  首先你的电脑需要能够可以输入git命令（即：安装Git）Git安装地址  检查是否电脑是否安装Git： 在终端输入 git version   理解Git 的工作区、暂存区、仓库区、远程仓库  工作区：即本地代码所存放的地方（电脑磁盘中） 暂存区：临时存放改动的文件的区域 仓库区：存放了所有版本的数据 远程仓库：即github、gitlab、gitee等代码托管平台    fork 曾经使用gitlab作为远程仓库时，只需要直接clone即可，现在需要使用了github向开源项目提交pr之后，发现第一步是fork
   在github中找到想参与的开源项目，例如KubeSphere
   点击右上角 Fork按钮  点开自己的github账号，发现自己的仓库中多了一个KubeSphere
@@ -31,7 +32,7 @@ git clone https://github.com/***/***.git // 后面的链接就是上一步骤中
   此时使用git remote -v可发现只与自己仓库建立连接，还需要与上游建立连接，这样才能将自己仓库中的项目的更改提交到开源项目中（只有origin 开头的两行代码）
 git remote add upstream [url] // 这里的url为 开源项目的https url，例如https://github.com/kubesphere/kubesphere.git， 创建连接后可再次输入git remote -v发现多了upstream 开头的两行" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://fuchunlan.github.io/post/first/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://fuchunlan.github.io/post/git/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-05-21T14:41:13&#43;08:00" />
 <meta property="article:modified_time" content="2021-05-21T14:41:13&#43;08:00" />
 
@@ -41,6 +42,7 @@ git remote add upstream [url] // 这里的url为 开源项目的https url，例�
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="基于向开源项目提PR的常见git操作"/>
 <meta name="twitter:description" content="引言 作为一个初入职场的程序员👨🏻‍💻，想必大家都会面临的一个问题就是如何提交代码，Git操作说难也难，说易也易，面向百度也能搜出各式各样的教程，而笔者依然选择写一篇，当然是因为笔者发现在工作中用到的和网上现有的教程存在一些差异。
+(Ps:可能有些小白也和当初的我一样并不知道PR是什么~，这里解答一下，就是Pull Request)
 准备工作  首先你的电脑需要能够可以输入git命令（即：安装Git）Git安装地址  检查是否电脑是否安装Git： 在终端输入 git version   理解Git 的工作区、暂存区、仓库区、远程仓库  工作区：即本地代码所存放的地方（电脑磁盘中） 暂存区：临时存放改动的文件的区域 仓库区：存放了所有版本的数据 远程仓库：即github、gitlab、gitee等代码托管平台    fork 曾经使用gitlab作为远程仓库时，只需要直接clone即可，现在需要使用了github向开源项目提交pr之后，发现第一步是fork
   在github中找到想参与的开源项目，例如KubeSphere
   点击右上角 Fork按钮  点开自己的github账号，发现自己的仓库中多了一个KubeSphere
@@ -173,10 +175,10 @@ git remote add upstream [url] // 这里的url为 开源项目的https url，例�
   <a href="#" class="save-as-image" title="Save as image" onclick="savePostAsImg()">
     <i class="save icon"></i>
   </a>
-  <a href="https://twitter.com/intent/tweet?text=%e5%9f%ba%e4%ba%8e%e5%90%91%e5%bc%80%e6%ba%90%e9%a1%b9%e7%9b%ae%e6%8f%90PR%e7%9a%84%e5%b8%b8%e8%a7%81git%e6%93%8d%e4%bd%9c&url=https%3a%2f%2ffuchunlan.github.io%2fpost%2ffirst%2f" title="Twitter">
+  <a href="https://twitter.com/intent/tweet?text=%e5%9f%ba%e4%ba%8e%e5%90%91%e5%bc%80%e6%ba%90%e9%a1%b9%e7%9b%ae%e6%8f%90PR%e7%9a%84%e5%b8%b8%e8%a7%81git%e6%93%8d%e4%bd%9c&url=https%3a%2f%2ffuchunlan.github.io%2fpost%2fgit%2f" title="Twitter">
     <i class="twitter icon"></i>
   </a>
-  <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2ffuchunlan.github.io%2fpost%2ffirst%2f" title="Facebook">
+  <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2ffuchunlan.github.io%2fpost%2fgit%2f" title="Facebook">
     <i class="facebook icon"></i>
   </a>
 </span>
@@ -191,6 +193,7 @@ git remote add upstream [url] // 这里的url为 开源项目的https url，例�
 
         <h3 id="引言">引言</h3>
 <p>作为一个初入职场的程序员👨🏻‍💻，想必大家都会面临的一个问题就是如何提交代码，Git操作说难也难，说易也易，面向百度也能搜出各式各样的教程，而笔者依然选择写一篇，当然是因为笔者发现在工作中用到的和网上现有的教程存在一些差异。</p>
+<p>(Ps:可能有些小白也和当初的我一样并不知道PR是什么~，这里解答一下，就是<code>Pull Request</code>)</p>
 <h3 id="准备工作">准备工作</h3>
 <ul>
 <li>首先你的电脑需要能够可以输入git命令（即：安装Git）<a href="http://git-scm.com/downloads">Git安装地址</a>

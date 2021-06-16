@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Home | My New Hugo Site</title>
+    <title>Home | My Blog</title>
 
     
 
@@ -17,19 +17,19 @@
 
 <meta name="generator" content="Hugo 0.83.1" />
 
-<link rel="canonical" href="http://fuchunlan.github.io/" />
+<link rel="canonical" href="https://fuchunlan.github.io/" />
 
 
-<meta property="og:title" content="My New Hugo Site" />
+<meta property="og:title" content="My Blog" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://fuchunlan.github.io/" />
+<meta property="og:url" content="https://fuchunlan.github.io/" />
 
 
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="My New Hugo Site"/>
+<meta name="twitter:title" content="My Blog"/>
 <meta name="twitter:description" content=""/>
 
 
@@ -67,7 +67,7 @@
     <i class="large link bullseye icon dream-flip-toggle" title="Flip it!"></i>
   </div>
   <div class="item">
-    <i class="large link home icon" title="Home" onclick="window.location.href = 'http:\/\/fuchunlan.github.io\/'"></i>
+    <i class="large link home icon" title="Home" onclick="window.location.href = 'https:\/\/fuchunlan.github.io\/'"></i>
   </div>
   
   
@@ -106,7 +106,7 @@
   
   <div class="sixteen wide mobile eight wide tablet eight wide computer four wide large screen four wide widescreen column dream-column">
     <article class="ui attached segment card dream-card">
-  <a class="image" href="http://fuchunlan.github.io/about/">
+  <a class="image" href="https://fuchunlan.github.io/about/">
     
     <img src="/img/default3.jpg" alt="About" />
     
@@ -137,15 +137,15 @@
   
   <div class="sixteen wide mobile eight wide tablet eight wide computer four wide large screen four wide widescreen column dream-column">
     <article class="ui attached segment card dream-card">
-  <a class="image" href="http://fuchunlan.github.io/post/first/">
+  <a class="image" href="https://fuchunlan.github.io/post/git/">
     
-    <img src="/img/default2.jpg" alt="First" />
+    <img src="/img/default2.jpg" alt="基于向开源项目提PR的常见git操作" />
     
   </a>
 
   <div class="content">
     <h2 class="ui medium header">
-      <a href="/post/first/">First</a>
+      <a href="/post/git/">基于向开源项目提PR的常见git操作</a>
     </h2>
     <div class="meta">
       <p class="date">
@@ -153,14 +153,23 @@
       </p>
     </div>
     <div class="description">
-      Hello Hugo 1.aaa
+      引言 作为一个初入职场的程序员👨🏻‍💻，想必大家都会面临的一个问题就是如何提交代码，Git操作说难也难，说易也易，面向百度也能搜出各式各样的教程，而笔者依然选择写一篇，当然是因为笔者发现在工作中用到的和网上现有的教程存在一些差异。
+(Ps:可能有些小白也和当初的我一样并不知道PR是什么~，这里解答一下，就是Pull Request)
+准备工作  首先你的电脑需要能够可以输入git命令（即：安装Git）Git安装地址  检查是否电脑是否安装Git： 在终端输入 git version   理解Git 的工作区、暂存区、仓库区、远程仓库  工作区：即本地代码所存放的地方（电脑磁盘中） 暂存区：临时存放改动的文件的区域 仓库区：存放了所有版本的数据 远程仓库：即github、gitlab、gitee等代码托管平台    fork 曾经使用gitlab作为远程仓库时，只需要直接clone即可，现在需要使用了github向开源项目提交pr之后，发现第一步是fork
+  在github中找到想参与的开源项目，例如KubeSphere
+  点击右上角 Fork按钮  点开自己的github账号，发现自己的仓库中多了一个KubeSphere
+  进入当该项目中，点击Clone or download,然后复制https链接
+  clone 打开终端进入一个你想存放代码的目录然后执行如下操作👇🏻
+git clone https://github.com/***/***.git // 后面的链接就是上一步骤中赋值的链接🔗 // 此时在master主分支   与上游分支建立连接
+  此时使用git remote -v可发现只与自己仓库建立连接，还需要与上游建立连接，这样才能将自己仓库中的项目的更改提交到开源项目中（只有origin 开头的两行代码）
+git remote add upstream [url] // 这里的url为 开源项目的https url，例如https://github.com/kubesphere/kubesphere.git， 创建连接后可再次输入git remote -v发现多了upstream 开头的两行
     </div>
   </div>
 
   <div class="extra content">
     <div class="author">@&nbsp;</div>
     <div class="reading-time">
-      <i class="clock icon"></i>1 minute read</div>
+      <i class="clock icon"></i>2 minutes read</div>
   </div>
 </article>
 
@@ -178,7 +187,7 @@
 
             <footer class="ui basic center aligned segment" style="background-color: transparent;">
               
-              <p>© 2021 My New Hugo Site</p>
+              <p>© 2021 My Blog</p>
               
 
               <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
