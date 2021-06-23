@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>前端小白工作记录之提供 docker image | My Blog</title>
+
+    
+
+
+
+<meta name="author" content="" />
+<meta name="description" content="" />
+
+
+
+<meta name="generator" content="Hugo 0.83.1" />
+
+<link rel="canonical" href="https://fuchunlan.github.io/docker/" />
+
+
+<meta property="og:title" content="前端小白工作记录之提供 docker image" />
+<meta property="og:description" content="​	Why need docker image?  这两天工作遇到一个新的问题，向开源项目提PR之后，issue 的提出者对我说作为一个对后端一窍不用的前端小白，看到这个问题，我不禁疑惑了，嗯？？？我不是在PR里面提供了视频吗？
+ 然后我很愚蠢的重新贴上了界面演示的image😂
+ 之后我收到了一条新的回复，他说  好的，现在终于引入正题了——
+What is docker image? 首先我只知道docker 是后端知识😓，这个时候就应该赶紧问懂的人了~
+询问了mentor，他给我的解释是：
+ 前端项目打包之后的代码部署成一个docker 镜像
+ 为了以防显得自己什么都不知道，并且还没有点学习能力，我开始了面向百度编程，下面就说说，作为前端需要知道的docker 的部分内容，如果你也和我一样的情况，那么请观看下面的内容，但如果你需要更多的，请搜索🔍更专业的人士的文章~
+How to get docker image? 第一步：安装docker docker安装非常小白，下一步即可，这里我就只附上官网连接，记得注册一个账号并登录
+第二步：打包项目 每个项目打包项目的命令大同小异，最简单直白的做法是，查看package.json文件中script显示的命令，一般是
+npm build / yarn build 第三步：创建镜像文件 在根目录创建Dockerfile文件，至于文件里的内容，本人技术过于浅薄不敢妄言（ps：其实是因为公司的项目本身Dockerfile就已经配置好了，不需要我进行修改，等我学术更精的时候我会好好学一学）
+第四步：构建镜像 docker build -t 镜像名称 . // 记住这个 . 不能遗漏 第五步：推送镜像到Docker Hub docker push 镜像名称  这里很多人会发现自己遇到了一个新问题
+终端中报错 denied: requested access to the resource is denied
+ 这个问题其实百度一下就很好解决了，镜像名称应该是由你的docker用户名/镜像名称组成，" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fuchunlan.github.io/docker/" /><meta property="article:section" content="" />
+<meta property="article:published_time" content="2021-06-16T16:07:39&#43;08:00" />
+<meta property="article:modified_time" content="2021-06-16T16:07:39&#43;08:00" />
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="前端小白工作记录之提供 docker image"/>
+<meta name="twitter:description" content="​	Why need docker image?  这两天工作遇到一个新的问题，向开源项目提PR之后，issue 的提出者对我说作为一个对后端一窍不用的前端小白，看到这个问题，我不禁疑惑了，嗯？？？我不是在PR里面提供了视频吗？
+ 然后我很愚蠢的重新贴上了界面演示的image😂
+ 之后我收到了一条新的回复，他说  好的，现在终于引入正题了——
+What is docker image? 首先我只知道docker 是后端知识😓，这个时候就应该赶紧问懂的人了~
+询问了mentor，他给我的解释是：
+ 前端项目打包之后的代码部署成一个docker 镜像
+ 为了以防显得自己什么都不知道，并且还没有点学习能力，我开始了面向百度编程，下面就说说，作为前端需要知道的docker 的部分内容，如果你也和我一样的情况，那么请观看下面的内容，但如果你需要更多的，请搜索🔍更专业的人士的文章~
+How to get docker image? 第一步：安装docker docker安装非常小白，下一步即可，这里我就只附上官网连接，记得注册一个账号并登录
+第二步：打包项目 每个项目打包项目的命令大同小异，最简单直白的做法是，查看package.json文件中script显示的命令，一般是
+npm build / yarn build 第三步：创建镜像文件 在根目录创建Dockerfile文件，至于文件里的内容，本人技术过于浅薄不敢妄言（ps：其实是因为公司的项目本身Dockerfile就已经配置好了，不需要我进行修改，等我学术更精的时候我会好好学一学）
+第四步：构建镜像 docker build -t 镜像名称 . // 记住这个 . 不能遗漏 第五步：推送镜像到Docker Hub docker push 镜像名称  这里很多人会发现自己遇到了一个新问题
+终端中报错 denied: requested access to the resource is denied
+ 这个问题其实百度一下就很好解决了，镜像名称应该是由你的docker用户名/镜像名称组成，"/>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/css/icomoon.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/css/OverlayScrollbars.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
+<link rel="stylesheet" href="/css/site.css" />
+
+<style>
+  .ui.header a:not(.ui.button):hover {
+    text-decoration: underline;
+  }
+
+  
+
+  
+
+  
+
+  
+</style>
+
+
+    
+
+
+
+
+
+
+
+    
+  </head>
+
+  <body class="default">
+    
+<nav class="ui secondary menu dream-menu">
+
+  <div class="item">
+    <i class="large link bullseye icon dream-flip-toggle" title="Flip it!"></i>
+  </div>
+  <div class="item">
+    <i class="large link home icon" title="Home" onclick="window.location.href = 'https:\/\/fuchunlan.github.io\/'"></i>
+  </div>
+  
+  
+</nav>
+
+    <div class="flip-container">
+      <div class="flipper">
+        <section class="front">
+          <div class="dream-max-width">
+            
+<div class="ui relaxed centered grid dream-grid dream-grid-single">
+  
+  
+  
+  
+
+  
+  <aside class="sixteen wide mobile sixteen wide tablet three wide computer column dream-single-aside">
+  
+    
+    <div class="ui segment toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#why-need-docker-image">Why need docker image?</a></li>
+        <li><a href="#what-is-docker-image">What is docker image?</a></li>
+        <li><a href="#how-to-get-docker-image">How to get docker image?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+
+    
+  
+  </aside>
+  
+  <div class="sixteen wide mobile sixteen wide tablet ten wide computer column markdown-body dream-single" id="dream-save-post-as-img">
+    <section class="ui top attached segment">
+      <header>
+        <h1 class="ui large header">前端小白工作记录之提供 docker image<span class="sub header">
+            <span class="left">
+              @
+              
+                
+              
+
+              | 
+                  
+                    Wednesday, Jun 16, 2021
+                  
+                
+
+              | 1 minutes read
+
+              
+              | Update at
+                
+                  
+                    Wednesday, Jun 16, 2021
+                  
+                
+              
+            </span>
+
+            
+            <span class="dream-share">
+  <a href="#" class="save-as-image" title="Save as image" onclick="savePostAsImg()">
+    <i class="save icon"></i>
+  </a>
+  <a href="https://twitter.com/intent/tweet?text=%e5%89%8d%e7%ab%af%e5%b0%8f%e7%99%bd%e5%b7%a5%e4%bd%9c%e8%ae%b0%e5%bd%95%e4%b9%8b%e6%8f%90%e4%be%9b%20docker%20image&url=https%3a%2f%2ffuchunlan.github.io%2fdocker%2f" title="Twitter">
+    <i class="twitter icon"></i>
+  </a>
+  <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2ffuchunlan.github.io%2fdocker%2f" title="Facebook">
+    <i class="facebook icon"></i>
+  </a>
+</span>
+
+            
+          </span>
+        </h1>
+      </header>
+
+      <article class="main">
+        
+
+        <p>​	<img src="/docker/cover.png" alt="cover"></p>
+<h3 id="why-need-docker-image">Why need docker image?</h3>
+<blockquote>
+<p>这两天工作遇到一个新的问题，向开源项目提PR之后，issue 的提出者对我说<img src="/docker/1.png" alt="Could you provide an image to verify the bug fix?"></p>
+<p>作为一个对后端一窍不用的前端小白，看到这个问题，我不禁疑惑了，嗯？？？我不是在PR里面提供了视频吗？</p>
+</blockquote>
+<p>然后我很愚蠢的重新贴上了界面演示的image😂</p>
+<blockquote>
+<p>之后我收到了一条新的回复，他说 <img src="/docker/2.png" alt="I think I misunderstood you. Could you provide a docker image to verify the fix."></p>
+</blockquote>
+<p>好的，现在终于引入正题了——</p>
+<h3 id="what-is-docker-image">What is docker image?</h3>
+<p>首先我只知道docker 是后端知识😓，这个时候就应该赶紧问懂的人了~</p>
+<p>询问了mentor，他给我的解释是：</p>
+<blockquote>
+<p>前端项目打包之后的代码部署成一个docker 镜像</p>
+</blockquote>
+<p>为了以防显得自己什么都不知道，并且还没有点学习能力，我开始了面向百度编程，下面就说说，作为前端需要知道的docker 的部分内容，如果你也和我一样的情况，那么请观看下面的内容，但如果你需要更多的，请搜索🔍更专业的人士的文章~</p>
+<h3 id="how-to-get-docker-image">How to get docker image?</h3>
+<h4 id="第一步安装docker">第一步：安装docker</h4>
+<p>docker安装非常小白，下一步即可，这里我就只附上<a href="https://www.docker.com/">官网连接</a>，记得注册一个账号并登录</p>
+<h4 id="第二步打包项目">第二步：打包项目</h4>
+<p>每个项目打包项目的命令大同小异，最简单直白的做法是，查看<code>package.json</code>文件中<code>script</code>显示的命令，一般是</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">build</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">yarn</span> <span style="color:#a6e22e">build</span>
+</code></pre></div><h4 id="第三步创建镜像文件">第三步：创建镜像文件</h4>
+<p>在根目录创建<code>Dockerfile</code>文件，至于文件里的内容，本人技术过于浅薄不敢妄言（ps：其实是因为公司的项目本身Dockerfile就已经配置好了，不需要我进行修改，等我学术更精的时候我会好好学一学）</p>
+<h4 id="第四步构建镜像">第四步：构建镜像</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">docker build <span style="color:#f92672">-</span>t <span style="color:#960050;background-color:#1e0010">镜像名称</span> . <span style="color:#75715e">// 记住这个 . 不能遗漏
+</span></code></pre></div><h4 id="第五步推送镜像到docker-hub">第五步：推送镜像到<code>Docker Hub</code></h4>
+<pre><code>docker push 镜像名称
+</code></pre><blockquote>
+<p>这里很多人会发现自己遇到了一个新问题</p>
+<p>终端中报错 denied: requested access to the resource is denied</p>
+</blockquote>
+<p>这个问题其实百度一下就很好解决了，镜像名称应该是由<code>你的docker用户名/镜像名称</code>组成，</p>
+<p>那么应该如何修改镜像名称呢？</p>
+<ul>
+<li>
+<p>首先应该查看刚才的镜像名称</p>
+</li>
+<li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">docker images <span style="color:#75715e">// 查看所有镜像
+</span></code></pre></div><p><img src="/docker/3.png" alt="查看所有镜像"></p>
+<ul>
+<li>
+<blockquote>
+<p>这里我还引发了新的问题，我想要的镜像名称为<code>ks-console/alerting</code>，然后我根据搜到说法，把名称改为了<code>我的docker用户名/console/alerting</code>,于是我发现，依然报错<code>denied: requested access to the resource is denied</code></p>
+<p><!-- raw HTML omitted -->注意📢：<!-- raw HTML omitted -->不能有两个 &lsquo;/&rsquo;  符号</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p>这里是<code>docker hub</code>仓库的<a href="https://hub.docker.com/repositories">地址</a>，登录上去能够看到刚刚自己推送的镜像，</p>
+<h4 id="最后一步">最后一步</h4>
+<p>现在我们只需要把<strong>完整的镜像名称</strong><code>（你的docker用户名/镜像名称）</code>发给找你要<code>docker image</code> 的人就可以啦</p>
+
+      </article>
+    </section>
+
+    
+
+    
+
+    
+  </div>
+</div>
+
+
+            <footer class="ui basic center aligned segment" style="background-color: transparent;">
+              
+              <p>© 2021 My Blog</p>
+              
+
+              <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
+
+              
+            </footer>
+          </div>
+        </section>
+        <section class="back">
+          <div class="dream-max-width">
+            <header class="ui basic very padded segment dream-header">
+  
+
+  <div class="content">
+    <h1 class="ui medium header">Set headerTitle in the config to display<span class="sub header"></span>
+    </h1>
+
+    <article class="ui horizontal list">
+      
+      <a class="item" href="/categories">
+        <i class="th list icon" title="All Categories"></i>
+      </a>
+      <a class="item" href="/tags">
+        <i class="tags icon" title="All Tags"></i>
+      </a>
+    </article>
+
+    
+  </div>
+</header>
+
+
+<div class="ui relaxed grid dream-grid dream-back">
+  
+  
+  
+
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment">
+      <div class="ui medium header">Social Links</div>
+      <nav class="ui secondary menu dream-menu dream-socials">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</nav>
+
+    </article>
+  </div>
+
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    
+  </div>
+
+  
+  
+  
+</div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+    
+
+    <script>
+  window.defaultDark =  null 
+  window.backgroundDark =  null 
+  window.backgroundImageDark =  null 
+  window.darkNav =  null 
+  window.maxTags =  null 
+  window.hasTwitterEmbed =  null 
+
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/js/jquery.overlayScrollbars.min.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/theme.js"></script>
+
+    
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script>
+<script src="/js/post.js" defer></script>
+
+
+    
+
+    
+  </body>
+</html>

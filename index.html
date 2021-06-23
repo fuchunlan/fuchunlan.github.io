@@ -106,9 +106,52 @@
   
   <div class="sixteen wide mobile eight wide tablet eight wide computer four wide large screen four wide widescreen column dream-column">
     <article class="ui attached segment card dream-card">
+  <a class="image" href="https://fuchunlan.github.io/docker/">
+    
+    <img src="/img/default2.jpg" alt="前端小白工作记录之提供 docker image" />
+    
+  </a>
+
+  <div class="content">
+    <h2 class="ui medium header">
+      <a href="/docker/">前端小白工作记录之提供 docker image</a>
+    </h2>
+    <div class="meta">
+      <p class="date">
+        Wednesday, Jun 16, 2021
+      </p>
+    </div>
+    <div class="description">
+      ​	Why need docker image?  这两天工作遇到一个新的问题，向开源项目提PR之后，issue 的提出者对我说作为一个对后端一窍不用的前端小白，看到这个问题，我不禁疑惑了，嗯？？？我不是在PR里面提供了视频吗？
+ 然后我很愚蠢的重新贴上了界面演示的image😂
+ 之后我收到了一条新的回复，他说  好的，现在终于引入正题了——
+What is docker image? 首先我只知道docker 是后端知识😓，这个时候就应该赶紧问懂的人了~
+询问了mentor，他给我的解释是：
+ 前端项目打包之后的代码部署成一个docker 镜像
+ 为了以防显得自己什么都不知道，并且还没有点学习能力，我开始了面向百度编程，下面就说说，作为前端需要知道的docker 的部分内容，如果你也和我一样的情况，那么请观看下面的内容，但如果你需要更多的，请搜索🔍更专业的人士的文章~
+How to get docker image? 第一步：安装docker docker安装非常小白，下一步即可，这里我就只附上官网连接，记得注册一个账号并登录
+第二步：打包项目 每个项目打包项目的命令大同小异，最简单直白的做法是，查看package.json文件中script显示的命令，一般是
+npm build / yarn build 第三步：创建镜像文件 在根目录创建Dockerfile文件，至于文件里的内容，本人技术过于浅薄不敢妄言（ps：其实是因为公司的项目本身Dockerfile就已经配置好了，不需要我进行修改，等我学术更精的时候我会好好学一学）
+第四步：构建镜像 docker build -t 镜像名称 . // 记住这个 . 不能遗漏 第五步：推送镜像到Docker Hub docker push 镜像名称  这里很多人会发现自己遇到了一个新问题
+终端中报错 denied: requested access to the resource is denied
+ 这个问题其实百度一下就很好解决了，镜像名称应该是由你的docker用户名/镜像名称组成，
+    </div>
+  </div>
+
+  <div class="extra content">
+    <div class="author">@&nbsp;</div>
+    <div class="reading-time">
+      <i class="clock icon"></i>1 minute read</div>
+  </div>
+</article>
+
+  </div>
+  
+  <div class="sixteen wide mobile eight wide tablet eight wide computer four wide large screen four wide widescreen column dream-column">
+    <article class="ui attached segment card dream-card">
   <a class="image" href="https://fuchunlan.github.io/about/">
     
-    <img src="/img/default3.jpg" alt="About" />
+    <img src="/img/default2.jpg" alt="About" />
     
   </a>
 
@@ -139,7 +182,7 @@
     <article class="ui attached segment card dream-card">
   <a class="image" href="https://fuchunlan.github.io/post/git/">
     
-    <img src="/img/default2.jpg" alt="基于向开源项目提PR的常见git操作" />
+    <img src="/img/default3.jpg" alt="基于向开源项目提PR的常见git操作" />
     
   </a>
 
