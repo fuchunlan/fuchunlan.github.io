@@ -106,9 +106,54 @@
   
   <div class="sixteen wide mobile eight wide tablet eight wide computer four wide large screen four wide widescreen column dream-column">
     <article class="ui attached segment card dream-card">
+  <a class="image" href="https://fuchunlan.github.io/yarn-link/">
+    
+    <img src="/img/default2.jpg" alt="前端小白工作记录之 yarn link" />
+    
+  </a>
+
+  <div class="content">
+    <h2 class="ui medium header">
+      <a href="/yarn-link/">前端小白工作记录之 yarn link</a>
+    </h2>
+    <div class="meta">
+      <p class="date">
+        Thursday, Jun 24, 2021
+      </p>
+    </div>
+    <div class="description">
+      工作之后，发现每天都能学到新的知识，对此感觉工作真的令人着迷，每天丰富一点自己的知识面，通过积少成多，某一日我一定也能成为大牛🤝🤝🤝，如果你也和我一样是个新手小白，那么就和我一起成长吧~~
+ 前言 工作中碰到了一个棘手的事情，我们公司有封装自己的组件库，在我修复bug的时候，发现某一个bug的根本原因在于引用的某个组件中的if 语句的判断条件不太对。
+第一想法是修改组件库，可是随之而来的就是一个新问题
+ 我修改了组件库之后，要怎么才能在push代码之前看到效果呢？
+ 好家伙，这我还真不知道？
+ 先说一下问题的原因，组件库中判断条件是 !isUndefined(value) ，即 该值为不是undefined就执行if语句
+而我的项目中该值为&quot;&quot;，有基础的人就知道只有未定义才为undefined
+ 但是本着方法总比困难多的原则，我试图绕过组件库，就在这个项目中修改，经过我的一番尝试之后，我还真发现了一个办法。
+ ​	通过删除某个值的定义，让关联的该值为undefined
+ 成功之后，我屁颠屁颠的跑去🏃🏻‍♀️提了PR，然后当我再次check PR的时候就看到了这样的场景
+ 大致意思就是，代码没有通过项目中编写的测试用例，因为测试用例不让该值为undefined！好家伙，卡着了，矛盾了有没有？我总不能更改测试用例吧？？😳
+ 因此，绕了一圈，发现我还是得解决上面👆🏻的问题，核心是在开发过程中，怎么把一个包链接到另一个项目 (ps:其实我觉得开发中遇到问题其实不可怕，因为百度大多可以解决，虽然耗时耗力了一点，可怕的事，百度的时候不知道如何描述)
+下面👇🏻就来介绍一下通过问导师然后再百度丰富的结果
+什么是 yarn link？  开发中，两个项目或多个项目之间相互依赖时，用 yarn link连接， 例如：我们现在有项目B，B中利用npm / yarn 包管理器 引入了 包 A，A是我们自己开发封装的组件，我们修改了组件A的内容，在还没有重新发布组件A 的时候，想要在项目B 中 检查组件A修改的是否正确，这个时候就需要用到yarn link  如何使用 yarn link？  这里我想说一下，有些人通常用的是npm ，npm和yarn的作用是一样的，只是具体的指令有些许区别 而link的话，直接讲 yarn 换成 npm即可
+   在包A （即封装好的组件库）中执行 yarn link   对包A进行 想要的修改 💻   执行 yarn buid （打包代码：具体指令按照package.
+    </div>
+  </div>
+
+  <div class="extra content">
+    <div class="author">@&nbsp;</div>
+    <div class="reading-time">
+      <i class="clock icon"></i>1 minute read</div>
+  </div>
+</article>
+
+  </div>
+  
+  <div class="sixteen wide mobile eight wide tablet eight wide computer four wide large screen four wide widescreen column dream-column">
+    <article class="ui attached segment card dream-card">
   <a class="image" href="https://fuchunlan.github.io/docker/">
     
-    <img src="/img/default2.jpg" alt="前端小白工作记录之提供 docker image" />
+    <img src="/img/default4.jpg" alt="前端小白工作记录之提供 docker image" />
     
   </a>
 
@@ -149,40 +194,9 @@ npm build / yarn build 第三步：创建镜像文件 在根目录创建Dockerfi
   
   <div class="sixteen wide mobile eight wide tablet eight wide computer four wide large screen four wide widescreen column dream-column">
     <article class="ui attached segment card dream-card">
-  <a class="image" href="https://fuchunlan.github.io/about/">
-    
-    <img src="/img/default2.jpg" alt="About" />
-    
-  </a>
-
-  <div class="content">
-    <h2 class="ui medium header">
-      <a href="/about/">About</a>
-    </h2>
-    <div class="meta">
-      <p class="date">
-        Friday, May 21, 2021
-      </p>
-    </div>
-    <div class="description">
-      
-    </div>
-  </div>
-
-  <div class="extra content">
-    <div class="author">@&nbsp;</div>
-    <div class="reading-time">
-      <i class="clock icon"></i>0 minutes read</div>
-  </div>
-</article>
-
-  </div>
-  
-  <div class="sixteen wide mobile eight wide tablet eight wide computer four wide large screen four wide widescreen column dream-column">
-    <article class="ui attached segment card dream-card">
   <a class="image" href="https://fuchunlan.github.io/post/git/">
     
-    <img src="/img/default3.jpg" alt="基于向开源项目提PR的常见git操作" />
+    <img src="/img/default1.jpg" alt="基于向开源项目提PR的常见git操作" />
     
   </a>
 

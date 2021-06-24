@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>前端小白工作记录之 yarn link | My Blog</title>
+
+    
+
+
+
+<meta name="author" content="" />
+<meta name="description" content="" />
+
+
+
+<meta name="generator" content="Hugo 0.83.1" />
+
+<link rel="canonical" href="https://fuchunlan.github.io/yarn-link/" />
+
+
+<meta property="og:title" content="前端小白工作记录之 yarn link" />
+<meta property="og:description" content="工作之后，发现每天都能学到新的知识，对此感觉工作真的令人着迷，每天丰富一点自己的知识面，通过积少成多，某一日我一定也能成为大牛🤝🤝🤝，如果你也和我一样是个新手小白，那么就和我一起成长吧~~
+ 前言 工作中碰到了一个棘手的事情，我们公司有封装自己的组件库，在我修复bug的时候，发现某一个bug的根本原因在于引用的某个组件中的if 语句的判断条件不太对。
+第一想法是修改组件库，可是随之而来的就是一个新问题
+ 我修改了组件库之后，要怎么才能在push代码之前看到效果呢？
+ 好家伙，这我还真不知道？
+ 先说一下问题的原因，组件库中判断条件是 !isUndefined(value) ，即 该值为不是undefined就执行if语句
+而我的项目中该值为&quot;&quot;，有基础的人就知道只有未定义才为undefined
+ 但是本着方法总比困难多的原则，我试图绕过组件库，就在这个项目中修改，经过我的一番尝试之后，我还真发现了一个办法。
+ ​	通过删除某个值的定义，让关联的该值为undefined
+ 成功之后，我屁颠屁颠的跑去🏃🏻‍♀️提了PR，然后当我再次check PR的时候就看到了这样的场景
+ 大致意思就是，代码没有通过项目中编写的测试用例，因为测试用例不让该值为undefined！好家伙，卡着了，矛盾了有没有？我总不能更改测试用例吧？？😳
+ 因此，绕了一圈，发现我还是得解决上面👆🏻的问题，核心是在开发过程中，怎么把一个包链接到另一个项目 (ps:其实我觉得开发中遇到问题其实不可怕，因为百度大多可以解决，虽然耗时耗力了一点，可怕的事，百度的时候不知道如何描述)
+下面👇🏻就来介绍一下通过问导师然后再百度丰富的结果
+什么是 yarn link？  开发中，两个项目或多个项目之间相互依赖时，用 yarn link连接， 例如：我们现在有项目B，B中利用npm / yarn 包管理器 引入了 包 A，A是我们自己开发封装的组件，我们修改了组件A的内容，在还没有重新发布组件A 的时候，想要在项目B 中 检查组件A修改的是否正确，这个时候就需要用到yarn link  如何使用 yarn link？  这里我想说一下，有些人通常用的是npm ，npm和yarn的作用是一样的，只是具体的指令有些许区别 而link的话，直接讲 yarn 换成 npm即可
+   在包A （即封装好的组件库）中执行 yarn link   对包A进行 想要的修改 💻   执行 yarn buid （打包代码：具体指令按照package." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fuchunlan.github.io/yarn-link/" /><meta property="article:section" content="" />
+<meta property="article:published_time" content="2021-06-24T14:18:20&#43;08:00" />
+<meta property="article:modified_time" content="2021-06-24T14:18:20&#43;08:00" />
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="前端小白工作记录之 yarn link"/>
+<meta name="twitter:description" content="工作之后，发现每天都能学到新的知识，对此感觉工作真的令人着迷，每天丰富一点自己的知识面，通过积少成多，某一日我一定也能成为大牛🤝🤝🤝，如果你也和我一样是个新手小白，那么就和我一起成长吧~~
+ 前言 工作中碰到了一个棘手的事情，我们公司有封装自己的组件库，在我修复bug的时候，发现某一个bug的根本原因在于引用的某个组件中的if 语句的判断条件不太对。
+第一想法是修改组件库，可是随之而来的就是一个新问题
+ 我修改了组件库之后，要怎么才能在push代码之前看到效果呢？
+ 好家伙，这我还真不知道？
+ 先说一下问题的原因，组件库中判断条件是 !isUndefined(value) ，即 该值为不是undefined就执行if语句
+而我的项目中该值为&quot;&quot;，有基础的人就知道只有未定义才为undefined
+ 但是本着方法总比困难多的原则，我试图绕过组件库，就在这个项目中修改，经过我的一番尝试之后，我还真发现了一个办法。
+ ​	通过删除某个值的定义，让关联的该值为undefined
+ 成功之后，我屁颠屁颠的跑去🏃🏻‍♀️提了PR，然后当我再次check PR的时候就看到了这样的场景
+ 大致意思就是，代码没有通过项目中编写的测试用例，因为测试用例不让该值为undefined！好家伙，卡着了，矛盾了有没有？我总不能更改测试用例吧？？😳
+ 因此，绕了一圈，发现我还是得解决上面👆🏻的问题，核心是在开发过程中，怎么把一个包链接到另一个项目 (ps:其实我觉得开发中遇到问题其实不可怕，因为百度大多可以解决，虽然耗时耗力了一点，可怕的事，百度的时候不知道如何描述)
+下面👇🏻就来介绍一下通过问导师然后再百度丰富的结果
+什么是 yarn link？  开发中，两个项目或多个项目之间相互依赖时，用 yarn link连接， 例如：我们现在有项目B，B中利用npm / yarn 包管理器 引入了 包 A，A是我们自己开发封装的组件，我们修改了组件A的内容，在还没有重新发布组件A 的时候，想要在项目B 中 检查组件A修改的是否正确，这个时候就需要用到yarn link  如何使用 yarn link？  这里我想说一下，有些人通常用的是npm ，npm和yarn的作用是一样的，只是具体的指令有些许区别 而link的话，直接讲 yarn 换成 npm即可
+   在包A （即封装好的组件库）中执行 yarn link   对包A进行 想要的修改 💻   执行 yarn buid （打包代码：具体指令按照package."/>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/css/icomoon.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/css/OverlayScrollbars.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
+<link rel="stylesheet" href="/css/site.css" />
+
+<style>
+  .ui.header a:not(.ui.button):hover {
+    text-decoration: underline;
+  }
+
+  
+
+  
+
+  
+
+  
+</style>
+
+
+    
+
+
+
+
+
+
+
+    
+  </head>
+
+  <body class="default">
+    
+<nav class="ui secondary menu dream-menu">
+
+  <div class="item">
+    <i class="large link bullseye icon dream-flip-toggle" title="Flip it!"></i>
+  </div>
+  <div class="item">
+    <i class="large link home icon" title="Home" onclick="window.location.href = 'https:\/\/fuchunlan.github.io\/'"></i>
+  </div>
+  
+  
+</nav>
+
+    <div class="flip-container">
+      <div class="flipper">
+        <section class="front">
+          <div class="dream-max-width">
+            
+<div class="ui relaxed centered grid dream-grid dream-grid-single">
+  
+  
+  
+  
+
+  
+  <aside class="sixteen wide mobile sixteen wide tablet three wide computer column dream-single-aside">
+  
+    
+    <div class="ui segment toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#什么是-yarn-link">什么是 yarn link？</a></li>
+    <li><a href="#如何使用-yarn-link">如何使用 yarn link？</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+
+    
+  
+  </aside>
+  
+  <div class="sixteen wide mobile sixteen wide tablet ten wide computer column markdown-body dream-single" id="dream-save-post-as-img">
+    <section class="ui top attached segment">
+      <header>
+        <h1 class="ui large header">前端小白工作记录之 yarn link<span class="sub header">
+            <span class="left">
+              @
+              
+                
+              
+
+              | 
+                  
+                    Thursday, Jun 24, 2021
+                  
+                
+
+              | 1 minutes read
+
+              
+              | Update at
+                
+                  
+                    Thursday, Jun 24, 2021
+                  
+                
+              
+            </span>
+
+            
+            <span class="dream-share">
+  <a href="#" class="save-as-image" title="Save as image" onclick="savePostAsImg()">
+    <i class="save icon"></i>
+  </a>
+  <a href="https://twitter.com/intent/tweet?text=%e5%89%8d%e7%ab%af%e5%b0%8f%e7%99%bd%e5%b7%a5%e4%bd%9c%e8%ae%b0%e5%bd%95%e4%b9%8b%20yarn%20link&url=https%3a%2f%2ffuchunlan.github.io%2fyarn-link%2f" title="Twitter">
+    <i class="twitter icon"></i>
+  </a>
+  <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2ffuchunlan.github.io%2fyarn-link%2f" title="Facebook">
+    <i class="facebook icon"></i>
+  </a>
+</span>
+
+            
+          </span>
+        </h1>
+      </header>
+
+      <article class="main">
+        
+
+        <blockquote>
+<p>工作之后，发现每天都能学到新的知识，对此感觉工作真的令人着迷，每天丰富一点自己的知识面，通过积少成多，某一日我一定也能成为大牛🤝🤝🤝，如果你也和我一样是个新手小白，那么就和我一起成长吧~~</p>
+</blockquote>
+<h2 id="前言">前言</h2>
+<p>工作中碰到了一个棘手的事情，我们公司有封装自己的组件库，在我修复bug的时候，发现某一个bug的根本原因在于引用的某个组件中的<code>if 语句</code>的判断条件不太对。</p>
+<p>第一想法是修改组件库，可是随之而来的就是一个新问题</p>
+<blockquote>
+<p>我修改了组件库之后，要怎么才能在push代码之前看到效果呢？</p>
+</blockquote>
+<p>好家伙，这我还真不知道？</p>
+<blockquote>
+<p>先说一下问题的原因，组件库中判断条件是 !isUndefined(value) ，即 该值为不是undefined就执行if语句</p>
+<p>而我的项目中该值为&quot;&quot;，有基础的人就知道只有未定义才为undefined</p>
+</blockquote>
+<p>但是本着方法总比困难多的原则，我试图绕过组件库，就在这个项目中修改，经过我的一番尝试之后，我还真发现了一个办法。</p>
+<blockquote>
+<p>​	通过删除某个值的定义，让关联的该值为undefined</p>
+</blockquote>
+<p>成功之后，我屁颠屁颠的跑去🏃🏻‍♀️提了PR，然后当我再次check PR的时候就看到了这样的场景</p>
+<p><img src="/yarnlink/yarnlink1.png" alt="image-20210623155203219"></p>
+<blockquote>
+<p>大致意思就是，代码没有通过项目中编写的测试用例，因为测试用例不让该值为undefined！好家伙，卡着了，矛盾了有没有？我总不能更改测试用例吧？？😳</p>
+</blockquote>
+<p>因此，绕了一圈，发现我还是得解决上面👆🏻的问题，核心是<code>在开发过程中，怎么把一个包链接到另一个项目</code> (ps:其实我觉得开发中遇到问题其实不可怕，因为百度大多可以解决，虽然耗时耗力了一点，可怕的事，百度的时候不知道如何描述)</p>
+<p>下面👇🏻就来介绍一下通过问导师然后再百度丰富的结果</p>
+<h2 id="什么是-yarn-link">什么是 yarn link？</h2>
+<ul>
+<li>开发中，两个项目或多个项目之间相互依赖时，用 <code>yarn link</code>连接，</li>
+<li>例如：我们现在有项目B，B中利用npm / yarn 包管理器 引入了 包 A，A是我们自己开发封装的组件，我们修改了组件A的内容，在还没有重新发布组件A 的时候，想要在项目B 中 检查组件A修改的是否正确，这个时候就需要用到<code>yarn link</code></li>
+</ul>
+<h2 id="如何使用-yarn-link">如何使用 yarn link？</h2>
+<blockquote>
+<p>这里我想说一下，有些人通常用的是npm ，npm和yarn的作用是一样的，只是具体的指令有些许区别 而link的话，直接讲 yarn 换成 npm即可</p>
+</blockquote>
+<ol>
+<li>
+<h5 id="在包a-即封装好的组件库中执行-yarn-link">在包A （即封装好的组件库）中执行 <code>yarn link</code></h5>
+</li>
+<li>
+<h5 id="对包a进行-想要的修改-">对包A进行 想要的修改 💻</h5>
+</li>
+<li>
+<h5 id="执行-yarn-buid-打包代码具体指令按照packagejson中scrpit来执行">执行 <code>yarn buid</code> （打包代码：具体指令按照package.json中scrpit来执行）</h5>
+</li>
+<li>
+<h5 id="在项目b-中执行yarn-link--包a的名称-并重新执行--yarn-并清除浏览器缓存">在项目B 中执行<code>yarn link  [包A的名称]</code> 并重新执行  <code>yarn</code> 并清除浏览器缓存</h5>
+</li>
+<li>
+<h5 id="这个时候就能在项目b-中查看改动之后的效果">这个时候就能在项目B 中查看改动之后的效果</h5>
+</li>
+<li>
+<h5 id="结束之后在项目b-中-执行-yarn-unlink-包a的名字来取消连接">结束之后，在项目B 中 执行 <code>yarn unlink [包A的名字]</code>来取消连接</h5>
+</li>
+</ol>
+
+      </article>
+    </section>
+
+    
+
+    
+
+    
+  </div>
+</div>
+
+
+            <footer class="ui basic center aligned segment" style="background-color: transparent;">
+              
+              <p>© 2021 My Blog</p>
+              
+
+              <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
+
+              
+            </footer>
+          </div>
+        </section>
+        <section class="back">
+          <div class="dream-max-width">
+            <header class="ui basic very padded segment dream-header">
+  
+
+  <div class="content">
+    <h1 class="ui medium header">Set headerTitle in the config to display<span class="sub header"></span>
+    </h1>
+
+    <article class="ui horizontal list">
+      
+      <a class="item" href="/categories">
+        <i class="th list icon" title="All Categories"></i>
+      </a>
+      <a class="item" href="/tags">
+        <i class="tags icon" title="All Tags"></i>
+      </a>
+    </article>
+
+    
+  </div>
+</header>
+
+
+<div class="ui relaxed grid dream-grid dream-back">
+  
+  
+  
+
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment">
+      <div class="ui medium header">Social Links</div>
+      <nav class="ui secondary menu dream-menu dream-socials">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</nav>
+
+    </article>
+  </div>
+
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    
+  </div>
+
+  
+  
+  
+</div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+    
+
+    <script>
+  window.defaultDark =  null 
+  window.backgroundDark =  null 
+  window.backgroundImageDark =  null 
+  window.darkNav =  null 
+  window.maxTags =  null 
+  window.hasTwitterEmbed =  null 
+
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/js/jquery.overlayScrollbars.min.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/theme.js"></script>
+
+    
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script>
+<script src="/js/post.js" defer></script>
+
+
+    
+
+    
+  </body>
+</html>
